@@ -29,6 +29,16 @@ public class TaskService {
 	}
 	
 	// Update
+	public Task update(Task task) {
+		Task newTask = findById(task.getId());
+		updateData(newTask, task);
+		return taskRepository.save(newTask);
+	}
+	
+	private void updateData(Task newTask, Task task) {
+		newTask.setTitle(task.getTitle());
+		newTask.setDescription(task.getDescription());
+	}
 	
 	// Delete
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,6 +61,13 @@ public class TaskController {
 	}
 	
 	// Update
+	@PutMapping("/{id}")
+	public ResponseEntity<Void> update(@RequestBody TaskRequestDTO taskDTO, @PathVariable Long id) {
+		Task task = taskDTO.toTask(taskDTO);
+		task.setId(id);
+		task = taskService.update(task);
+		return ResponseEntity.noContent().build();
+	}
 	
 	// Delete
 }
