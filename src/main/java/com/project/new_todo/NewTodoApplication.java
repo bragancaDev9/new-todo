@@ -13,6 +13,7 @@ public class NewTodoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		/*
+		- Populating database -
 		Task t1 = new Task(null, "title", "description");
 		Task t2 = new Task(null, "title-1", "description-1");
 		Task t3 = new Task(null, "title-2", "description-2");
